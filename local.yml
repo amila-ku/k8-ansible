@@ -1,0 +1,8 @@
+---
+#executing etcd configuration
+
+- hosts: localhost
+  user: root
+
+  roles:
+    - etcd_setup

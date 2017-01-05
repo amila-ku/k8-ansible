@@ -1,0 +1,16 @@
+---
+# tasks file for etcd-setup
+
+- name: set etcd2 service
+  template:
+    src: "etcd2.service.j2"
+    dest: "/etc/systemd/system/etcd2.service"
+    owner: core
+    group: core
+    mode: 0644
+
+- name: start etcd2 service
+  service:
+    name: etcd2
+    state: started
+    enabled: true

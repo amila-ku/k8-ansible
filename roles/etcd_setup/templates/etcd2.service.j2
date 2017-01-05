@@ -1,0 +1,16 @@
+[Unit]
+Description=etcd2
+Conflicts=etcd.service
+
+[Service]
+Restart=always
+EnvironmentFile=/etc/etcd_aws.env
+ExecStart=/usr/bin/docker run --name etcd-aws \
+  -p 2379:2379 -p 2380:2380 \
+  -v /var/lib/etcd2:/var/lib/etcd2 \
+  -e {{ ETCD_BACKUP_BUCKET }} \
+  --rm crewjam/etcd-aws
+ExecStop=-/usr/bin/docker rm -f etcd-aws
+
+[Install]
+WantedBy=multi-user.target

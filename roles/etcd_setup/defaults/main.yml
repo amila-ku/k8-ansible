@@ -1,0 +1,6 @@
+---
+# defaults file for etcd-setup
+
+# s3 bucket name for storing etcd backups
+ETCD_BACKUP_BUCKET: etcd_backup_test
+
