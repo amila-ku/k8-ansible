@@ -1,5 +1,10 @@
 ---
 # tasks file for etcd-setup
+- name: install docker
+  apt:
+    name: docker
+    update_cache: yes
+    state: latest
 
 - name: set etcd2 service
   template:
